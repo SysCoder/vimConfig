@@ -1,8 +1,6 @@
 " '''''''''''''''''''"
 " Plugins            "
 "''''''''''''''''''''"
-
-
 "Pathogen
 execute pathogen#infect()
 syntax on
@@ -13,8 +11,9 @@ filetype plugin indent on
 " Settings          "
 " ''''''''''''''''''"
 :set number hlsearch tabstop=2 expandtab shiftwidth=2 
-:set history=200
+:set history=1000
 :set hidden
+:set incsearch
 
 " Dictionary completion
 :set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
@@ -23,7 +22,7 @@ filetype plugin indent on
 " find files by specifying directories.
 " Usage - :find filename
 " :set path+=app/**
-:set path+=/Users/marcelluspelcher/SourceCode/**
+" :set path+=/Users/marcelluspelcher/SourceCode/**
 
 "'''''''''''''''''''"
 " Mappings          "
@@ -37,11 +36,6 @@ filetype plugin indent on
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" Toggle indention on and off for copy and pasting
-nnoremap <F5> :set invpaste paste?<Enter>
-imap <F5> <C-O><F5>
-set pastetoggle=<F5>
-
 "''''''''''''''''''"
 " global remaps    "
 "''''''''''''''''''"
@@ -53,18 +47,15 @@ inoremap <Leader>c ggyw``
 map <Leader>r <Esc>:w <CR>:!python %:p<CR>
 map <F5> <Esc>:w <CR>:!%:p<CR>
 
+" Open ctags in a new window
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 "'''''''''''''''''''''"
 "                     "
 "  Macros             "
 "                     "
 "'''''''''''''''''''''"
-
-
-" Made creating arrays easier
-" Write elements line by line
-" and then run this macro on each
-" line
-let @a = "A',I'I€kbj"
 
 if &term =~ "xterm.*"
     let &t_ti = &t_ti . "\e[?2004h"
