@@ -43,6 +43,9 @@ inoremap <Leader>r <Esc>:w<CR>:!python %:p<CR>
 inoremap <Leader>, <Esc>
 inoremap <Leader>c ggyw``
 
+:nnoremap <space> i<space><esc>
+:nnoremap <Enter> i<Enter><esc>
+
 " Saves the current file and run
 map <Leader>r <Esc>:w <CR>:!python %:p<CR>
 map <F5> <Esc>:w <CR>:!%:p<CR>
